@@ -1,0 +1,87 @@
+@layer base {
+  html {
+    @apply antialiased scroll-smooth;
+  }
+
+  @media screen and (prefers-reduced-motion: reduce), (update: slow) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001s !important;
+      transition-delay: 0.001s !important;
+      transition-duration: 0.001s !important;
+    }
+  }
+
+  body {
+    @apply text-base text-primary-text overflow-x-hidden;
+
+    &[data-scroll="false"] {
+      overflow: hidden;
+    }
+  }
+
+  button,
+  [role="button"],
+  input[type="submit"] {
+    background: none;
+    color: inherit;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+    text-transform: inherit;
+    outline-offset: 3px;
+
+    &[disabled] {
+      cursor: not-allowed;
+    }
+  }
+
+  svg {
+    fill: currentColor;
+  }
+
+  abbr[title] {
+    text-decoration: none;
+  }
+
+  table {
+    border-spacing: 0;
+  }
+
+  th {
+    text-align: left;
+  }
+
+  p {
+    @apply text-base;
+    @apply leading-normal;
+
+    & a {
+      @apply no-underline;
+      @apply text-link;
+
+      &:hover {
+        @apply underline;
+      }
+    }
+  }
+
+  strong {
+    @apply font-bold;
+  }
+
+  /* Hide arrow for details dropdown on safari when '.list-none' */
+  details > summary.list-none::marker,
+  details > summary.list-none::-webkit-details-marker {
+    display: none;
+  }
+}
