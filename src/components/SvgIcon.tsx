@@ -6,6 +6,7 @@ interface IconProps {
 }
 
 export const SvgIcon = ({ classes, children }: IconProps) => {
+  // TODO: add size styles to pass through
   return (
     <svg
       aria-hidden="true"
