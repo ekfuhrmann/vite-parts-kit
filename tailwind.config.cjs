@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 
 const colors = require("tailwindcss/colors");
+const plugins = require("@viget/tailwindcss-plugins");
 const { remPair, rem } = require("@viget/tailwindcss-plugins/utilities/fns");
 
 module.exports = {
@@ -59,6 +60,25 @@ module.exports = {
       ...remPair(100),
       ...remPair(128),
       ...remPair(136),
+    },
+    rect: {
+      8: [8, 8],
+      10: [10, 10],
+      14: [14, 14],
+      16: [16, 16],
+      18: [18, 18],
+      20: [20, 20],
+      22: [22, 22],
+      24: [24, 24],
+      28: [28, 28],
+      30: [30, 30],
+      32: [32, 32],
+      36: [36, 36],
+      40: [40, 40],
+      48: [48, 48],
+      56: [56, 56],
+      72: [72, 72],
+      80: [80, 80],
     },
     fontSize: {
       "2xs": [
@@ -123,5 +143,5 @@ module.exports = {
   },
 
   /** Plugins **/
-  plugins: [],
+  plugins: [plugins.rect],
 };

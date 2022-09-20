@@ -1,8 +1,9 @@
 import cx from "classnames";
+// import * as Icons from "./Icons";
 
-interface ButtonProps {
+type ButtonProps = {
   /**
-   * What styles should be applied to the button?
+   What styles should be applied to the button?
    */
   variant?:
     | "primary"
@@ -14,40 +15,47 @@ interface ButtonProps {
     | "destructive-outlined";
 
   /**
-   * How large should the button be?
+   How large should the button be?
    */
   size?: "xs" | "sm" | "md" | "lg";
 
   /**
-   * How large should the button be?
+   Element placed **before** the children.
    */
-  startIcon?: React.ElementType;
+  startIcon?: React.ReactNode;
 
   /**
-   * When present, specifies that the button should be disabled
+   Element placed **after** the children.
+   */
+  endIcon?: React.ReactNode;
+
+  /**
+   When present, specifies that the button should be disabled
    */
   disabled?: boolean;
 
   /**
-   * Button contents
+   Button contents
    */
-  label: string;
+  children: React.ReactNode;
 
   /**
    * Optional click handler
    */
   onClick?: () => void;
-}
+};
 
 export const Button = ({
   size = "md",
   variant = "primary",
-  label,
+  children,
+  startIcon,
+  endIcon,
   ...props
 }: ButtonProps) => {
   const btnStyles = cx(
     // base
-    "inline-flex transition-colors duration-200 items-center gap-8 rounded justify-center text-center",
+    "inline-flex transition-colors duration-200 items-center gap-10 rounded justify-center text-center [&_svg]:-mx-4 [&_svg]:rect-20",
     {
       // handle variants
       "bg-primary text-white shadow-button border-0 hover:bg-primary-hover hover:text-white active:!bg-primary-active active:!text-white disabled:!border-none disabled:!bg-gray-100 disabled:!text-gray-400":
@@ -75,7 +83,9 @@ export const Button = ({
 
   return (
     <button type="button" className={btnStyles} {...props}>
-      {label}
+      {startIcon}
+      {children}
+      {endIcon}
     </button>
   );
 };
