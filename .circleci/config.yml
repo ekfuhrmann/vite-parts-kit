@@ -1,3 +1,5 @@
+version: 2.1
+
 jobs:
   # Add Chromatic Job
   chromatic-deployment:
@@ -14,11 +16,13 @@ jobs:
         # Run the Chromatic CLI
       - run: yarn chromatic --project-token=${CHROMATIC_PROJECT_TOKEN}
 
+# Invoke jobs via workflows
+# See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
   # Add Chromatic Workflow
   chromatic-deploy:
     jobs:
-      - chromatic-deployment # Runs the Chromatic job implemented above
-        filters:
-          branches:
-            only: main
+      - chromatic-deployment:
+          filters:
+            branches:
+              only: main
