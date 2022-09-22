@@ -20,14 +20,14 @@
   body {
     @apply text-base text-primary-text overflow-x-hidden;
 
-    &[data-scroll="false"] {
+    &[data-scroll='false'] {
       overflow: hidden;
     }
   }
 
   button,
-  [role="button"],
-  input[type="submit"] {
+  [role='button'],
+  input[type='submit'] {
     background: none;
     color: inherit;
     cursor: pointer;

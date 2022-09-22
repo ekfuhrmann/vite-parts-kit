@@ -1,21 +1,27 @@
-import { ComponentStory, ComponentMeta } from "@storybook/react";
-import { Button } from "../components/Button";
-import * as Icons from "../components/Icons";
+import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Button } from '../components/Button';
+import * as Icons from '../components/Icons';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 
-console.log(Object.values(Icons).map((IconComp) => <IconComp />));
+const IconElementMapping = Object.fromEntries(
+  Object.entries(Icons).map(([name, Component]) => [name, <Component />]),
+);
+
+const iconOptions = {
+  options: ['No Icon'].concat(Object.keys(Icons)),
+  mapping: {
+    'No Icon': undefined,
+    ...IconElementMapping,
+  },
+};
+
 export default {
-  title: "Button",
+  title: 'Button',
   component: Button,
   argTypes: {
-    startIcon: {
-      options: Icons,
-      // mapping: TODO: can't get it to work
-    },
-    endIcon: {
-      options: Icons,
-    },
+    startIcon: iconOptions,
+    endIcon: iconOptions,
   },
 } as ComponentMeta<typeof Button>;
 
@@ -25,43 +31,43 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 export const Primary = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
 Primary.args = {
-  children: "Button",
-  variant: "primary",
-  size: "md",
+  children: 'Button',
+  variant: 'primary',
+  size: 'md',
 };
 
 export const Outlined = Template.bind({});
 Outlined.args = {
-  children: "Button",
-  variant: "outlined",
+  children: 'Button',
+  variant: 'outlined',
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
-  children: "Button",
-  variant: "secondary",
+  children: 'Button',
+  variant: 'secondary',
 };
 
 export const Subtle = Template.bind({});
 Subtle.args = {
-  children: "Button",
-  variant: "subtle",
+  children: 'Button',
+  variant: 'subtle',
 };
 
 export const Link = Template.bind({});
 Link.args = {
-  children: "Button",
-  variant: "link",
+  children: 'Button',
+  variant: 'link',
 };
 
 export const Destructive = Template.bind({});
 Destructive.args = {
-  children: "Button",
-  variant: "destructive",
+  children: 'Button',
+  variant: 'destructive',
 };
 
 export const DestructiveOutlined = Template.bind({});
 DestructiveOutlined.args = {
-  children: "Button",
-  variant: "destructive-outlined",
+  children: 'Button',
+  variant: 'destructive-outlined',
 };
