@@ -25,4 +25,4 @@ workflows:
       - chromatic-deployment:
           filters:
             branches:
-              only: main
+              only: chromatic
