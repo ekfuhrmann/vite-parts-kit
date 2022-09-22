@@ -4,7 +4,7 @@ jobs:
   # Add Chromatic Job
   chromatic-deployment:
     docker:
-      - image: circleci/node:12
+      - image: circleci/node:14
     working_directory: ~/repo
     steps:
       - checkout
