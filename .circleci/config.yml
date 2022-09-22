@@ -22,7 +22,4 @@ workflows:
   # Add Chromatic Workflow
   chromatic-deploy:
     jobs:
-      - chromatic-deployment:
-          filters:
-            branches:
-              only: main
+      - chromatic-deployment
