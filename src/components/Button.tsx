@@ -59,7 +59,7 @@ export const Button = ({
 }: ButtonProps) => {
   const btnStyles = cx(
     // base
-    'inline-flex transition-colors duration-200 items-center gap-10 rounded justify-center text-center [&_svg]:-mx-4 [&_svg]:rect-20',
+    'inline-flex transition-colors duration-200 items-center gap-10 rounded justify-center text-center [&_svg]:-mx-4 [&_svg]:rect-20 !p-24',
     {
       // handle variants
       'bg-primary text-white shadow-button border-0 hover:bg-primary-hover hover:text-white active:!bg-primary-active active:!text-white disabled:!border-none disabled:!bg-gray-100 disabled:!text-gray-400':
