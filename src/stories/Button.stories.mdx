@@ -1,7 +1,15 @@
-import { Canvas, Meta, Story, Props, Preview } from '@storybook/addon-docs';
+import {
+  Canvas,
+  Meta,
+  Story,
+  Props,
+  Preview,
+  ArgsTable,
+} from '@storybook/addon-docs';
 
 import { Button } from '../components/Button';
 import * as Icons from '../components/Icons';
+import { CloseIcon } from '../components/Icons';
 
 export const IconElementMapping = Object.fromEntries(
   Object.entries(Icons).map(([name, Component]) => [name, <Component />]),
@@ -16,17 +24,12 @@ export const iconOptions = {
 };
 
 <Meta
-  title='Buttons'
+  title='Inputs/Button'
   component={Button}
   argTypes={{
     startIcon: iconOptions,
     endIcon: iconOptions,
   }}
-/>
-
-<!--
-NOTE: to hide canvas use following in META tag...
-
   parameters={{
     viewMode: 'docs',
     previewTabs: {
@@ -35,57 +38,56 @@ NOTE: to hide canvas use following in META tag...
       },
     },
   }}
- -->
+/>
 
 export const Template = (args) => <Button {...args} />;
 
-# Buttons
+# Button
 
-With `MDX`, we can define a story for `Button` right in the middle of our Markdown documentation.
+Buttons represents a clickable element that the user can interact with.
 
-<Canvas>
+<Canvas withToolbar withSource='open'>
   <Story
-    name='Buttons'
+    name='Button'
     args={{
-      children: 'Button',
+      children: 'Label',
       onClick: undefined,
     }}>
     {Template.bind({})}
   </Story>
 </Canvas>
 
-## Props
+<ArgsTable story='Button' />
 
-<Props of={Button} />
+## Button Variants
 
-## Variants
-
-`<Button />` components have take in a `variant` property that defines the way the button should look and behavave across the platform.
+`<Button />` components take in a `variant` property that defines the way the button should look and behavave across the platform.
 
 <Canvas>
-  <div className='flex flex-wrap gap-16'>
-    <Button variant='primary'>Destructive Outlined</Button>
-    <Button variant='outlined'>Destructive Outlined</Button>
-    <Button variant='secondary'>Destructive Outlined</Button>
-    <Button variant='subtle'>Destructive Outlined</Button>
-    <Button variant='linked'>Destructive Outlined</Button>
-    <Button variant='destructive'>Destructive Outlined</Button>
-    <Button variant='destructive-outlined'>Destructive Outlined</Button>
-  </div>
-</Canvas>
-
-## NOTE
-
-Each story contained within a `<Story />` block will render in the sidebar. If you want to display a canvas with a `Show Code` block while not adding bloat to the sidebar, use the following pattern:
-
-```jsx
-<Canvas>
+  <Button variant='primary'>Primary</Button>
+  <Button variant='outlined'>Outlined</Button>
+  <Button variant='secondary'>Secondary</Button>
+  <Button variant='subtle'>Subtle</Button>
+  <Button variant='link'>Link</Button>
+  <Button variant='destructive'>Destructive</Button>
   <Button variant='destructive-outlined'>Destructive Outlined</Button>
 </Canvas>
-```
 
-which renders the following:
+## Button With Icon and Label
+
+Occasionally you may want to have an icon accompany the label to enhance the UX and provide further context for the action associated with the button. As such you can pass in a `startIcon` and `endIcon` property which will automatically handle including the icon component. For example, you may want to have a close button that includes a cross icon.
 
 <Canvas>
-  <Button variant='destructive-outlined'>Destructive Outlined</Button>
+  <Button startIcon={<CloseIcon />}>Close</Button>
+</Canvas>
+
+## Button Sizes
+
+Not all buttons are created equal, and sometimes you may want to have a smaller or larger button depending on the context in which it's being used. For this reason you can pass a `size` property which will set the proper height and padding as neceessary. By default buttons size to `md`.
+
+<Canvas>
+  <Button size='xs'>Button</Button>
+  <Button size='sm'>Button</Button>
+  <Button size='md'>Button</Button>
+  <Button size='lg'>Button</Button>
 </Canvas>
