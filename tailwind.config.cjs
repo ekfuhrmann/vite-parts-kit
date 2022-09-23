@@ -5,7 +5,7 @@ const plugins = require('@viget/tailwindcss-plugins');
 const { remPair, rem } = require('@viget/tailwindcss-plugins/utilities/fns');
 
 module.exports = {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx,mdx}'],
   theme: {
     /** Override Core Styles **/
     screens: {

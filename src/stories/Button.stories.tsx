@@ -2,6 +2,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button } from '../components/Button';
 import * as Icons from '../components/Icons';
 
+// NOTE: this is strictly a sample `stories.tsx`
+
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 
 const IconElementMapping = Object.fromEntries(

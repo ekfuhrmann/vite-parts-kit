@@ -1,0 +1,91 @@
+import { Canvas, Meta, Story, Props, Preview } from '@storybook/addon-docs';
+
+import { Button } from '../components/Button';
+import * as Icons from '../components/Icons';
+
+export const IconElementMapping = Object.fromEntries(
+  Object.entries(Icons).map(([name, Component]) => [name, <Component />]),
+);
+
+export const iconOptions = {
+  options: ['No Icon'].concat(Object.keys(Icons)),
+  mapping: {
+    'No Icon': undefined,
+    ...IconElementMapping,
+  },
+};
+
+<Meta
+  title='Buttons'
+  component={Button}
+  argTypes={{
+    startIcon: iconOptions,
+    endIcon: iconOptions,
+  }}
+/>
+
+<!--
+NOTE: to hide canvas use following in META tag...
+
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: {
+        hidden: true,
+      },
+    },
+  }}
+ -->
+
+export const Template = (args) => <Button {...args} />;
+
+# Buttons
+
+With `MDX`, we can define a story for `Button` right in the middle of our Markdown documentation.
+
+<Canvas>
+  <Story
+    name='Buttons'
+    args={{
+      children: 'Button',
+      onClick: undefined,
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## Props
+
+<Props of={Button} />
+
+## Variants
+
+`<Button />` components have take in a `variant` property that defines the way the button should look and behavave across the platform.
+
+<Canvas>
+  <div className='flex flex-wrap gap-16'>
+    <Button variant='primary'>Destructive Outlined</Button>
+    <Button variant='outlined'>Destructive Outlined</Button>
+    <Button variant='secondary'>Destructive Outlined</Button>
+    <Button variant='subtle'>Destructive Outlined</Button>
+    <Button variant='linked'>Destructive Outlined</Button>
+    <Button variant='destructive'>Destructive Outlined</Button>
+    <Button variant='destructive-outlined'>Destructive Outlined</Button>
+  </div>
+</Canvas>
+
+## NOTE
+
+Each story contained within a `<Story />` block will render in the sidebar. If you want to display a canvas with a `Show Code` block while not adding bloat to the sidebar, use the following pattern:
+
+```jsx
+<Canvas>
+  <Button variant='destructive-outlined'>Destructive Outlined</Button>
+</Canvas>
+```
+
+which renders the following:
+
+<Canvas>
+  <Button variant='destructive-outlined'>Destructive Outlined</Button>
+</Canvas>
