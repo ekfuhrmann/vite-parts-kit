@@ -1,5 +1,4 @@
 import cx from 'classnames';
-import { AddIcon, CloseIcon } from './Icons';
 
 type DefaultButtonProps = {
   /**
