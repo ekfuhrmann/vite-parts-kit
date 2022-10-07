@@ -2,8 +2,8 @@ import cx from 'classnames';
 
 type DefaultButtonProps = {
   /**
-   What styles should be applied to the button?
-   */
+  What styles should be applied to the element?
+  */
   variant?:
     | 'primary'
     | 'secondary'
@@ -14,22 +14,27 @@ type DefaultButtonProps = {
     | 'destructive-outlined';
 
   /**
+  What custom classes should be applied to the element?
+  */
+  className?: string;
+
+  /**
   How large should the button be?
   */
   size?: 'xs' | 'sm' | 'md' | 'lg';
 
   /**
-  When present, specifies that the button should be disabled
+  When present, specifies that the button should be disabled.
   */
   disabled?: boolean;
 
   /**
-  Button content
+  What the inner content of the button is.
   */
   children?: React.ReactNode;
 
   /**
-  Optional click handler
+  Optional click handler.
   */
   onClick?: () => void;
 };
@@ -51,6 +56,12 @@ type ButtonIconProps = DefaultButtonProps & {
   Element used in place of children.
   */
   icon?: React.ReactNode;
+
+  /**
+
+  __NOTE:__ If the `icon` property is not defined, you can pass elements in as `children`.
+  */
+  children?: React.ReactNode;
 };
 
 function setButtonStyles(variant: string, size: string, icon?: boolean) {
@@ -102,12 +113,16 @@ export const Button = ({
   size = 'md',
   variant = 'primary',
   children,
+  className,
   startIcon = undefined,
   endIcon = undefined,
   ...props
 }: ButtonProps) => {
   return (
-    <button type='button' className={setButtonStyles(variant, size)} {...props}>
+    <button
+      type='button'
+      className={`${setButtonStyles(variant, size)} ${className}`}
+      {...props}>
       {startIcon}
       {children}
       {endIcon}
@@ -119,13 +134,14 @@ export const ButtonIcon = ({
   size = 'md',
   variant = 'primary',
   children,
+  className,
   icon = undefined,
   ...props
 }: ButtonIconProps) => {
   return (
     <button
       type='button'
-      className={setButtonStyles(variant, size, true)}
+      className={`${setButtonStyles(variant, size, true)} ${className}`}
       {...props}>
       {icon ? icon : children}
     </button>

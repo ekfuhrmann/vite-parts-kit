@@ -1,5 +1,6 @@
 import { AddIcon, CloseIcon, DeleteIcon } from './components/Icons';
 import { Button, ButtonIcon } from './components/Button';
+import { Chip } from './components/Chip';
 
 function App() {
   return (
@@ -20,6 +21,10 @@ function App() {
         <ButtonIcon size='sm' icon={<AddIcon />} />
         <ButtonIcon size='md' icon={<AddIcon />} />
         <ButtonIcon size='lg' icon={<AddIcon />} />
+        <Chip endIcon={<AddIcon />}>Hello World</Chip>
+        <Chip size='sm'>
+          Test <CloseIcon />
+        </Chip>
       </div>
     </>
   );
