@@ -1,5 +1,5 @@
 # TODO
 * Clean up core CSS styles
-* Update prettier/eslint rules
-* Icon build out
 * Add more components!
+
+https://storybook.js.org/docs/react/writing-docs/doc-block-argstable

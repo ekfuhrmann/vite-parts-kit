@@ -1,6 +1,5 @@
 {
   "name": "vite-parts-kit",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
@@ -46,6 +45,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-storybook": "^0.6.4",
     "postcss": "^8.4.16",
     "postcss-import": "^15.0.0",
     "postcss-nesting": "^10.2.0",
@@ -55,6 +55,5 @@
     "typescript": "*",
     "vite": "^3.1.0"
   },
-  "readme": "ERROR: No README data found!",
   "_id": "vite-parts-kit@0.0.0"
 }
