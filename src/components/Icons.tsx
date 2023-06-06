@@ -4,7 +4,7 @@ export type IconProps = {
   /**
    Apply additional styles to the svg.
    */
-  classes?: string;
+  className?: string;
 
   /**
    Specify whether the icon is outlined or filled
@@ -19,7 +19,7 @@ export type IconProps = {
 
 // Wrapper component
 const Icon = ({
-  classes = 'rect-24',
+  className = 'rect-24',
   outlined = false,
   children,
 }: IconProps) => {
@@ -29,7 +29,7 @@ const Icon = ({
       viewBox='0 0 24 24'
       fill='none'
       xmlns='http://www.w3.org/2000/svg'
-      className={classes}>
+      className={className}>
       {children}
     </svg>
   );

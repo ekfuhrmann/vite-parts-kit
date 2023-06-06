@@ -1,5 +1,8 @@
 import cx from 'classnames';
 
+/**
+ * Label example ehre
+ */
 type DefaultButtonProps = {
   /**
   What styles should be applied to the element?
@@ -56,11 +59,6 @@ type ButtonIconProps = DefaultButtonProps & {
   Element used in place of children.
   */
   icon?: React.ReactNode;
-
-  /**
-
-  __NOTE:__ If the `icon` property is not defined, you can pass elements in as `children`.
-  */
   children?: React.ReactNode;
 };
 
